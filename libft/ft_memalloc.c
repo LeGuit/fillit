@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 17:02:39 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/26 12:13:47 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+void	*ft_memalloc(size_t size)
+{
+	unsigned char	*res;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+	if (!(res = (unsigned char *)malloc(size)))
+		return (NULL);
+	else
+	{
+		while (size != 0)
+		{
+			res[size] = 0;
+			size--;
+		}
+		return (res);
+	}
+}

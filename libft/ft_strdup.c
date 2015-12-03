@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 14:47:12 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/24 15:31:02 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+char	*ft_strdup(const char *s1)
+{
+	char	*dst;
+	int		i;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	if (!(dst = (char *)malloc(sizeof(char) * (ft_strlen(s1) + 1))))
+		return (NULL);
+	else
+	{
+		while (s1[i])
+		{
+			dst[i] = s1[i];
+			i++;
+		}
+	}
+	dst[i] = '\0';
+	return (dst);
+}

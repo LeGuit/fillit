@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 14:53:04 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/24 11:50:39 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+char	*ft_strcpy(char *dst, const char *src)
+{
+	int i;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+	i = 0;
+	while (src[i])
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (dst);
+}

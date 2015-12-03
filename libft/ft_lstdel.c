@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 18:26:23 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/26 13:47:10 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+{
+	t_list	*nlst;
+	t_list	*lst;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+	lst = *alst;
+	while (lst)
+	{
+		nlst = lst->next;
+		del(lst->content, lst->content_size);
+		free(lst);
+		lst = nlst;
+	}
+	*alst = NULL;
+}

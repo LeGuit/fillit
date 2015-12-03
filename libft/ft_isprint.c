@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 17:00:09 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/24 13:33:25 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
-
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+int		ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	else
+		return (0);
+}

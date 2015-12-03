@@ -1,24 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 17:59:56 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/12/01 18:09:30 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+static int	size_str(int n)
+{
+	int		i;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
+	i = 0;
+	if (n < 0)
+		i++;
+	while (n != 0)
+	{
+		i++;
+		n /= 10;
+	}
+	return (i);
+}
 
-#endif
+char		*ft_itoa(int n)
+{
+	int		i;
+	char	*res;
+
+	i = size_str(n);
+	res = ft_strnew(i);
+	if (n == 0)
+		return ("0");
+	if (n < 0)
+		res[0] = '-';
+	while (n != 0)
+	{
+		res[i - 1] = ABS(n % 10) + '0';
+		i--;
+		n /= 10;
+	}
+	return (res);
+}

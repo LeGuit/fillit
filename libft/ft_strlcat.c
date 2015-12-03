@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 15:26:15 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/24 19:52:50 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	nmax;
+	size_t	res;
+	size_t	i;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+	nmax = size - ft_strlen(dst) - 1;
+	res = ft_strlen(src);
+	i = 0;
+	while (dst[i] && i < size)
+		i++;
+	res += ((i < size) ? i : size);
+	if ((int)nmax > 0)
+		ft_strncat(dst, src, nmax);
+	return (res);
+}

@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:18:44 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/11/23 14:31:28 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/11/26 10:31:01 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FILLIT_H
-# define _FILLIT_H
+#include "includes/libft.h"
 
-# include "libft/includes/libft.h"
-# define BUFF_SIZE		21
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	unsigned char	*ts1;
+	unsigned char	*ts2;
 
-//int			get_tetrinos(int const fd, char **line);
-int			is_valid(char *line);
-int			fillit(char*av);
-int			get_line(int const fd, char **line);
-
-#endif
+	ts1 = (unsigned char *)s1;
+	ts2 = (unsigned char *)s2;
+	if (n == 0)
+		return (0);
+	while (n != 0)
+	{
+		if (*ts1 != *ts2)
+			return (*ts1 - *ts2);
+		n--;
+		ts1++;
+		ts2++;
+	}
+	return (0);
+}
