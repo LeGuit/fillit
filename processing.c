@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 13:02:14 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:25:46 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/03 19:50:44 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int		get_tetrinos(int const fd, char **line)
 	while (((ret = read(fd, buf, BUFF_SIZE)) > 0) && loop < 26)
 	{
 		buf[ret] = 0;
-	ft_putstr("test line : ");
+	ft_putendl("test line : ");
 	ft_putendl(buf);
 		if (!is_valid(buf))
 			return (0);

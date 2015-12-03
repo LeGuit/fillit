@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 15:00:15 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 19:43:50 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/03 20:11:05 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,35 @@ static int		test_4tetri(char *buf)
 static int		test_shape(char *buf)
 {
 	int			i;
+	int			count;
 
 	i = 0;
-	while (i < 16)
+	count = 0;
+	while (i < 21)
 	{
 		if (buf[i] == '#')
 		{
-			if (buf[i + 1] != '#' && buf[i + 5] != '#')
-				return (0);
+			count++;		//Nawak !!!!!
+			if (count == 4)
+				return (1);
+		ft_putstr("count : ");
+		ft_putnbr(count);
+		ft_putchar('\n');
+		ft_putstr("buf : ");
+		ft_putchar(buf[i]);
+		ft_putchar('\n');
+		ft_putstr("buf + 1 : ");
+		ft_putchar(buf[i + 1]);
+		ft_putchar('\n');
+		ft_putstr("buf + 5 : ");
+		ft_putchar(buf[i + 5]);
+		ft_putchar('\n');
+			if (buf[i + 1] == '#' || buf[i + 5] == '#')
+				continue ;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int				is_valid(char *buf)
