@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/26 16:53:22 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/03 12:21:59 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/12/03 13:04:19 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#ifndef _FILLIT_H
+# define _FILLIT_H
 
-int		main(int ac, char **av)
-{
-	if (ac != 2 || !fillit(av[1]))
-		ft_putstr("error\n");
-	return (0);
-}
+# include "includes/libft.h"
+# define BUFF_SIZE		545
+
+//int			get_tetrinos(int const fd, char **line);
+int			is_valid(char *line);
+
+#endif
