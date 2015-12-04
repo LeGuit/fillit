@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 11:46:46 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 11:46:47 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/04 11:51:31 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int		test_4tetri(char *buf)
 	int			i;
 	int			count;
 
-	ft_putendl("test 4tetri : ");
 	i = 0;
 	count = 0;
 	while (i < 21)

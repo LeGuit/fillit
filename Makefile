@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 16:00:57 by gwoodwar          #+#    #+#              #
-#    Updated: 2015/12/03 16:39:47 by gwoodwar         ###   ########.fr        #
+#    Updated: 2015/12/04 11:51:57 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB =		-I libft/includes
 LFT =		-L libft/ -lft
 
 SRCS =		fillit.c \
-			test_line.c \
+			test_buf.c \
 			processing.c \
 			main.c \
 
