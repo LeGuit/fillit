@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 15:08:20 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/04 15:37:10 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int				get_next_tetri(int const fd, char letter, t_list **head)
 
 	if (fd < 0 || BUFF_SIZE < 1)
 		return (-1);
-	*head = 0;
 	if (!(tetri = create_piece(letter, head)))
 		return (-1);
 	ret = read_in_fd(fd, tetri);
