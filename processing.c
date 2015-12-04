@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 15:37:10 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/04 16:01:57 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ static int		read_in_fd(int const fd, t_tetri *tetri)
 {
 	int		ret;
 
-	while ((ret = read(fd, tetri->piece, BUFF_SIZE)) > 0)
-	{
-		(tetri->piece)[ret] = 0;
-		if (!is_valid(tetri->piece))
-			return (-1);
-	}
+	ret = read(fd, tetri->piece, BUFF_SIZE);
+	(tetri->piece)[ret] = 0;
+	if (!is_valid(tetri->piece))
+		return (-2);
 	return (ret);
 }
 
