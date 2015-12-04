@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 16:57:02 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:10:56 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 
 int					is_valid(char *line);
 int					fillit(char*av);
-//int					get_line(int const fd, char **line);
 int					get_next_tetri(int const fd, char letter, t_list **head);
 
 typedef struct		s_tetri
@@ -28,6 +27,8 @@ typedef struct		s_tetri
 	char			*piece;
 	int				height;
 	int				width;
+	int				xmin;
+	int				ymax;
 }					t_tetri;
 
 #endif

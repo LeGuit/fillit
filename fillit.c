@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 15:41:29 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 16:05:27 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:10:54 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ int			fillit(char *av)
 		return (0);
 	letter = 'A';
 	while ((ret = get_next_tetri(fd, letter, &head)) > 0)
+	{
+		ft_putstr(CONTENT(head)->piece);
+		ft_putnbr(CONTENT(head)->width);
+		ft_putnbr(CONTENT(head)->height);
 		letter++;
+	}
 	if (ret == -2)
 		return (0);
 	if (close(fd) == -1)
