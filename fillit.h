@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 17:10:56 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/04 17:12:46 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct		s_tetri
 	int				height;
 	int				width;
 	int				xmin;
-	int				ymax;
+	int				ymin;
 }					t_tetri;
 
 #endif
