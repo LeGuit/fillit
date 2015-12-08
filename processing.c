@@ -6,12 +6,12 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 17:52:47 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/08 21:09:51 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
+/*
 static t_tetri	*create_piece(char letter, t_list **head)
 {
 	t_list	*node;
@@ -34,21 +34,29 @@ static int		read_in_fd(int const fd, t_tetri *tetri)
 
 	ret = read(fd, tetri->piece, BUFF_SIZE);
 //	(tetri->piece)[ret] = 0;
-	ft_putstr(tetri->piece);
+//	ft_putstr(tetri->piece);
 	if (!is_valid(tetri->piece))
 		return (-2);
 	return (ret);
 }
-
-int				get_next_tetri(int const fd, char letter, t_list **head)
+*/
+int				get_next_tetri(int const fd, t_list **head)
 {
-	t_tetri			*tetri;
 	int				ret;
+	char			buf[22];
+	int				resval;
 
-	if (fd < 0 || BUFF_SIZE < 1)
+	(void)head;
+	ret = read(fd, buf, 21);
+	buf[ret] = '\0';
+//OK	ft_putstr(buf);
+	if(!(resval = is_valid(buf)) && *buf)///!\ *buf
+	{
+		ft_putnbr(resval);
 		return (-1);
-	if (!(tetri = create_piece(letter, head)))
-		return (-1);
-	ret = read_in_fd(fd, tetri);
+	}
+//		ft_putnbr(resval);
+//	if (!(tetri = create_piece(letter, head)))
+//		return (-1);
 	return (ret);
 }
