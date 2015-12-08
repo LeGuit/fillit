@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 17:12:46 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/08 12:25:06 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "libft/includes/libft.h"
 # define BUFF_SIZE		21
 # define CONTENT(x)		((t_tetri *)(x)->content)
+# define PAT(x)			((tetri.piece)[x])
 
 int					is_valid(char *line);
 int					fillit(char*av);
@@ -27,8 +28,7 @@ typedef struct		s_tetri
 	char			*piece;
 	int				height;
 	int				width;
-	int				xmin;
-	int				ymin;
+	int				patern;
 }					t_tetri;
 
 #endif
