@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/08 12:59:06 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/08 13:01:50 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct		s_tetri
 typedef struct		s_map
 {
 	char			*map;
+	int				lenline;
 	int				minheight;
 	int				minwidth;
 }					t_map;
