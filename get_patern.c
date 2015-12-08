@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/08 12:38:51 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/08 12:38:53 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/08 13:02:45 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,14 +110,14 @@ static int		patern_vz_vt(int len, t_tetri tetri)
 	return (0);
 }
 
-int				get_patern(int len, t_tetri tetri)
+int				get_patern(t_map, t_tetri tetri)
 {
 	int		res;
 
-	if (res = patern_vl_vb(len, tetri)
-			|| res = patern_hl_hb(len, tetri)
-			|| res = patern_hz_ht_sq(len, tetri)
-			|| res = patern_vz_vt(len, tetri))
+	if (res = patern_vl_vb(map.len, tetri)
+			|| res = patern_hl_hb(map.len, tetri)
+			|| res = patern_hz_ht_sq(map.len, tetri)
+			|| res = patern_vz_vt(map.len, tetri))
 		return (res);
 	return (0);
 }
