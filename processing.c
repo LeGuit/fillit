@@ -6,57 +6,55 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/08 21:09:51 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/09 21:58:20 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-/*
-static t_tetri	*create_piece(char letter, t_list **head)
-{
-	t_list	*node;
-	t_tetri	contentnew;
 
-	contentnew.letter = letter;
-	contentnew.piece = ft_strnew(BUFF_SIZE);
-	if (!(node = ft_lstnew(&contentnew, sizeof(t_tetri))))
+static void		create_piece(t_list **head, char *buf, char letter)
+{
+	t_list		*node;
+	t_tetri		contentnew;
+	int			i;
+	int			j;
+
+	i = 0;
+	j = 0;
+	while (i < 19)
 	{
-		free(contentnew.piece);
-		return (NULL);
+		if (buf[i] != '\n')
+		{
+			if (buf[i] == '#')
+				contentnew.piece[j] = letter;
+			else
+				contentnew.piece[j] = buf[i];
+			j++;
+		}
+		i++;
 	}
+	contentnew.piece[j] = '\0';
+	contentnew.letter = letter;
+	if (!(node = ft_lstnew(&contentnew, sizeof(t_tetri))))
+		return ;
 	ft_lstadd_last(head, node);
-	return (CONTENT(node));
 }
 
-static int		read_in_fd(int const fd, t_tetri *tetri)
+int				get_next_tetri(int const fd, t_list **head, char letter)
 {
-	int		ret;
-
-	ret = read(fd, tetri->piece, BUFF_SIZE);
-//	(tetri->piece)[ret] = 0;
-//	ft_putstr(tetri->piece);
-	if (!is_valid(tetri->piece))
-		return (-2);
-	return (ret);
-}
-*/
-int				get_next_tetri(int const fd, t_list **head)
-{
-	int				ret;
-	char			buf[22];
-	int				resval;
+	int			ret;
+	char		buf[22];
+	int			resval;
 
 	(void)head;
 	ret = read(fd, buf, 21);
 	buf[ret] = '\0';
-//OK	ft_putstr(buf);
+//	ft_putstr(buf);
 	if(!(resval = is_valid(buf)) && *buf)///!\ *buf
 	{
 		ft_putnbr(resval);
 		return (-1);
 	}
-//		ft_putnbr(resval);
-//	if (!(tetri = create_piece(letter, head)))
-//		return (-1);
+	create_piece(head, buf, letter);
 	return (ret);
 }

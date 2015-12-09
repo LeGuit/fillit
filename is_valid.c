@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_buf.c                                         :+:      :+:    :+:   */
+/*   is_valid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/04 11:46:46 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/08 21:15:34 by ndelmatt         ###   ########.fr       */
+/*   Created: 2015/12/09 21:14:41 by ndelmatt          #+#    #+#             */
+/*   Updated: 2015/12/09 21:15:08 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,7 @@ static int		test_endl(char *buf)
 	while (i < 20)
 	{
 		if (i % 5 == 4 && buf[i] != '\n')
-		{
-	ft_putendl("test buf : ");
-	ft_putstr(buf);
-			ft_putstr("val buf[i] : ");
-			ft_putchar(buf[i]);
-			ft_putnbr(i);
 			return (0);
-		}
 		i++;
 	}
 	if (ft_strlen(buf) == 21 && buf[i] != '\n')
@@ -76,8 +69,6 @@ static int		test_char(char *buf)
 	int			i;
 
 	i = 0;
-	ft_putstr("buf : ");
-	ft_putstr(buf);
 	while (i < 19)
 	{
 		if (i % 5 != 4 && buf[i] != '#' && buf[i] != '.')

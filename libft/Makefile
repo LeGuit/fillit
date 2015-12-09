@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 11:51:30 by gwoodwar          #+#    #+#              #
-#    Updated: 2015/12/04 15:09:24 by gwoodwar         ###   ########.fr        #
+#    Updated: 2015/12/09 21:25:27 by ndelmatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -79,6 +79,8 @@ SRCS =	ft_atoi.c \
 		ft_lstmap.c \
 		ft_strlen_ch.c \
 		ft_lstfind.c \
+		ft_putnstr.c \
+		ft_putnstr_fd.c
 
 OBJS = $(SRCS:.c=.o)
 

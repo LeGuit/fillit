@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 16:00:57 by gwoodwar          #+#    #+#              #
-#    Updated: 2015/12/08 19:56:13 by ndelmatt         ###   ########.fr        #
+#    Updated: 2015/12/09 17:56:19 by ndelmatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ $(NAME):	$(LIB_NAME) $(OBJS)
 
 clean:
 	/bin/rm -f $(OBJS)
+	make -C libft/ fclean
 
 fclean: 	clean
 	/bin/rm -f $(NAME)
