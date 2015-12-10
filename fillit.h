@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/09 21:51:40 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/10 18:02:41 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,39 @@
 # define _FILLIT_H
 
 # include "libft/includes/libft.h"
-# define BUFF_SIZE		17
+# define P_SIZE			4
 # define CONTENT(x)		((t_tetri *)(x)->content)
-# define PAT(x)			((tetri.piece)[x])
+# define PAT(x)			ft_isalpha(((tetri.piece)[x]))
+# define MAP_SIZE		128
+# define MIN(x, y)	((x) > (y) ? (y) : (x))
+# define MAX(x, y)	((x) < (y) ? (y) : (x))
 
-int					is_valid(char *buf);
-int					fillit(char*av);
-int					get_next_tetri(int const fd, t_list **head, char letter);
 
 typedef struct		s_tetri
 {
 	char			letter;
-	char			piece[16];
+	char			piece[P_SIZE][P_SIZE];
 	int				height;
 	int				width;
-	int				patern;
+	int				xmin;
+	int				xmax;
+	int				ymin;
+	int				ymax;
 }					t_tetri;
 
 typedef struct		s_map
 {
-	char			*map;
-	int				lenline;
-	int				minheight;
-	int				minwidth;
+	char			field[MAP_SIZE][MAP_SIZE];
+	int				minsquare;
+	int				xcoord;
+	int				ycoord;
 }					t_map;
+
+int					is_valid(char *buf);
+int					fillit(char*av);
+int					get_next_tetri(int const fd, t_list **head, char letter);
+void				mapgen(t_map *map);
+void				print_piece(t_tetri const *t);
+void				print_map(t_map *map);
 
 #endif

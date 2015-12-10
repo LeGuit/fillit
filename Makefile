@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 16:00:57 by gwoodwar          #+#    #+#              #
-#    Updated: 2015/12/09 17:56:19 by ndelmatt         ###   ########.fr        #
+#    Updated: 2015/12/10 16:56:31 by ndelmatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ LFT =		-L libft/ -lft
 SRCS =		fillit.c \
 			is_valid.c \
 			processing.c \
+			print_piece.c \
 			main.c \
 
 OBJS =		$(SRCS:.c=.o)

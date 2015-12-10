@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 15:41:29 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/09 21:53:44 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/10 16:58:36 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ int			fillit(char *av)
 	{
 		nbread += ret;
 		letter++;
-		ft_putchar(CONTENT(head)->letter);
-		ft_putendl(CONTENT(head)->piece);
+		print_piece(CONTENT(head));
+		ft_putendl("");
+//i		ft_putendl(CONTENT(head)->piece[3]);
 	}
 	if ((nbread - 20) % 21)//test a deplacer si possible
 	   return (-1);	

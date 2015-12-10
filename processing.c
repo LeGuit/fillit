@@ -6,36 +6,88 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/09 21:58:20 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/10 16:44:18 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void		create_piece(t_list **head, char *buf, char letter)
+static void     gen_piece(t_tetri *tetri)
 {
-	t_list		*node;
-	t_tetri		contentnew;
-	int			i;
-	int			j;
+	int         x;
+	int         y;
 
-	i = 0;
-	j = 0;
-	while (i < 19)
+	y = -1;
+	while (++y < P_SIZE)
 	{
-		if (buf[i] != '\n')
+		x = -1;
+		while (++x < P_SIZE)
 		{
-			if (buf[i] == '#')
-				contentnew.piece[j] = letter;
-			else
-				contentnew.piece[j] = buf[i];
-			j++;
+			tetri->piece[y][x] = '.';
 		}
-		i++;
 	}
-	contentnew.piece[j] = '\0';
-	contentnew.letter = letter;
-	if (!(node = ft_lstnew(&contentnew, sizeof(t_tetri))))
+}
+
+static void		get_piece_metrics(char *buf, t_tetri *t)
+{
+	int			x;
+	int			y;
+
+	y = 0;
+	t->xmin = 4;
+	t->xmax = 0;
+	t->ymin = 4;
+	t->ymax = 0;
+	while (y < 4)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			if (buf[y * 5 + x] == '#')
+			{
+				t->xmin = MIN(t->xmin, x);
+				t->xmax = MAX(t->xmax, x);
+				t->ymin = MIN(t->ymin, y);
+				t->ymax = MAX(t->ymax, y);
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+static void		buf_to_struct(char *buf, t_tetri *t)
+{
+
+	int			x;
+	int			y;
+
+	y = 0;
+	while (y < t->height)
+	{
+		x = 0;
+		while (x < t->width)
+		{
+			if (buf[x + t->xmin + (y + t->ymin) * 5] == '#')
+				t->piece[y][x] = t->letter;
+			x++;
+		}
+		y++;
+	}
+}
+
+static void     create_piece(t_list **head, char *buf, char letter)
+{
+	t_list      *node;
+	t_tetri     t;
+
+	gen_piece(&t);
+	get_piece_metrics(buf, &t);
+	t.letter = letter;
+	t.height = t.ymax - t.ymin + 1;
+	t.width = t.xmax - t.xmin + 1;
+	buf_to_struct(buf, &t);
+	if (!(node = ft_lstnew(&t, sizeof(t_tetri))))
 		return ;
 	ft_lstadd_last(head, node);
 }
@@ -49,12 +101,13 @@ int				get_next_tetri(int const fd, t_list **head, char letter)
 	(void)head;
 	ret = read(fd, buf, 21);
 	buf[ret] = '\0';
-//	ft_putstr(buf);
+	//	ft_putstr(buf);
 	if(!(resval = is_valid(buf)) && *buf)///!\ *buf
 	{
 		ft_putnbr(resval);
 		return (-1);
 	}
 	create_piece(head, buf, letter);
+	//	get_size(CONTENT(head));
 	return (ret);
 }

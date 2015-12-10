@@ -6,47 +6,60 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:08:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/04 17:07:44 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2015/12/10 18:50:13 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void			solve(t_list **head)
+void			find_space(t_map *map, t_list **head)
 {
-	t_list *tmp;
-
-	tmp = *head
-		while (tmp)
+	map->ycoord = 0;
+	while (map->ycoord < map->minsquare)
+	{
+		map->xcoord = 0;
+		while (map->xcoord < map->minsquare)
 		{
-			get_size_piece(CONTENT(head));
-			tmp = tmp->next;
+			if (map->field[x][y] == '.')
+			{
+				if (!test_piece(map, *head))
+				{
+					map->minsquare += 1;
+					solve(map, head);
+				}
+			}
+			map->xcoord++;
 		}
-
+		map->ycoord++;
+	}
+	print_solution();
 }
 
-static void		get_size_piece(t_tetri *tetri)
+int				test_pieces(t_map *map, t_tetri *t)
 {
-	int		i;
+	int			x;
+	int			y;
 
-	i = -1;
-	while ((tetri->piece)[++i])
+	if (map->ycoord == map->minsquare)
+		return (0);
+	y = 0;
+	while (y < t->height)
 	{
-		if (isalpha((tetri->piece)[i]))
+		if (map->minsquare - map->xcoord < t->width)
 		{
-			tetri.xmin = i % 5;
-			tetri.ymin = i / 5;
-			break ;
+			map->ycoord++;
+			test_pieces(map, t);
 		}
-	}
-	i = 21
-	while ((tetri->piece)[--i])
-	{
-		if (isalpha((tetri->piece)[i]))
+		x = 0;
+		while (x < t->width)
 		{
-			tetri.width = i % 5;
-			tetri.height = i / 5;
-			break ;
+			if (map->field[map->ycoord + y][map->xcoord + x] != '.'
+					&& ft_isalpha(t->piece[y][x]))
+			{
+				map->xcoord++;
+				test_pieces(map, t);
+			}
+			x++;
 		}
+		y++;
 	}
-	tetri.width -= (tetri.x - 1);
-	tetri.height -= (tetri.y - 1);
+	return(1);
 }
