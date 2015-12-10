@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:08:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/10 18:50:13 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/10 19:23:11 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			find_space(t_map *map, t_list **head)
 	print_solution();
 }
 
-int				test_pieces(t_map *map, t_tetri *t)
+int				test_piece(t_map *map, t_tetri *t)
 {
 	int			x;
 	int			y;
