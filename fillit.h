@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/10 18:02:41 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/11 16:23:22 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_tetri
 	int				xmax;
 	int				ymin;
 	int				ymax;
+	int				mempos[2];
 }					t_tetri;
 
 typedef struct		s_map
