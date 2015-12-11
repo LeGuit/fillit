@@ -6,16 +6,46 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:08:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/10 19:23:11 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2015/12/11 14:54:54 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void			find_space(t_map *map, t_list **head)
+#include "fillit.h"
+
+static void		gen_map(t_map *map)
 {
+	int			x;
+	int			y;
+
+	y = 0;
+	while (y < MAP_SIZE)
+	{
+		x = 0;
+		while (x < MAP_SIZE)
+		{
+			map->field[y][x] = '.';
+			x++;
+		}
+		y++;
+	}
+	map->minsquare = 2;
+	map->xcoord = 0;
 	map->ycoord = 0;
+}
+
+void			start_solve(t_list **lst)
+{
+	t_map		*map;
+
+	gen_map(map);
+	recursive_start(map, *lst);
+	print_map(map);
+}
+
+void			recursive_start(t_map *map, t_list **head)
+{
 	while (map->ycoord < map->minsquare)
 	{
-		map->xcoord = 0;
 		while (map->xcoord < map->minsquare)
 		{
 			if (map->field[x][y] == '.')
@@ -30,7 +60,6 @@ void			find_space(t_map *map, t_list **head)
 		}
 		map->ycoord++;
 	}
-	print_solution();
 }
 
 int				test_piece(t_map *map, t_tetri *t)
