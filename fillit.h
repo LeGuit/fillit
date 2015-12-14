@@ -18,9 +18,6 @@
 # define CONTENT(x)		((t_tetri *)(x)->content)
 # define PAT(x)			ft_isalpha(((tetri.piece)[x]))
 # define MAP_SIZE		128
-# define MIN(x, y)	((x) > (y) ? (y) : (x))
-# define MAX(x, y)	((x) < (y) ? (y) : (x))
-
 
 typedef struct		s_tetri
 {
