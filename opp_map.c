@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:07:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2015/12/11 16:43:31 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 17:11:50 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ void            remove_piece(t_map *map, t_tetri *t)
 		{
 			if (ft_isalpha(t->piece[y][x]))
 				map->field[y + t->mempos[0]][x + t->mempos[1]] = '.';
+			x++;
 		}
-		x++;
+		y++;
 	}
-	y++;
 }
 
-int				can_fit_there(t_map *map, t_tetri *t)
+static int		can_fit_there(t_map *map, t_tetri *t)
 {
 	int         x;
 	int         y;
@@ -75,9 +75,6 @@ int				can_fit_there(t_map *map, t_tetri *t)
 
 int				can_fit(t_map *map, t_tetri *t)
 {
-	int			xstart;
-
-	xstart = map->xcoord;
 	while (map->ycoord < map->minsquare)
 	{
 		while (map->xcoord < map->minsquare)
@@ -88,7 +85,7 @@ int				can_fit(t_map *map, t_tetri *t)
 					map->xcoord++;
 				else
 				{
-					map->xcoord = xstart;
+					map->xcoord = 0;
 					map->ycoord++;
 				}
 			}

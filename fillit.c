@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 15:41:29 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/10 16:58:36 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2016/01/07 17:08:17 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ int			fillit(char *av)
 	   return (-1);	
 	if (close(fd) == -1)
 		return (0);
-//	solve(&head);
+	start_solve(&head);
 	return (1);
 }
