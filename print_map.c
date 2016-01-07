@@ -6,9 +6,11 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 17:37:37 by ndelmatt          #+#    #+#             */
-/*   Updated: 2015/12/10 17:47:12 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2016/01/07 17:30:46 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fillit.h"
 
 void			print_map(t_map *map)
 {

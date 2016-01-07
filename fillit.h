@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 17:13:48 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 17:28:39 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void				mapgen(t_map *map);
 void				print_piece(t_tetri const *t);
 void				print_map(t_map *map);
 void				start_solve(t_list **lst);
-void				recursive(t_map *map, t_list *lst);
+void				recursive(t_map *map, t_list **lst);
 int					can_fit(t_map *map, t_tetri *t);
+
 #endif

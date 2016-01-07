@@ -6,9 +6,11 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:07:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/07 17:11:50 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 17:29:55 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fillit.h"
 
 void			insert_piece(t_map *map, t_tetri *t)
 {
@@ -91,7 +93,7 @@ int				can_fit(t_map *map, t_tetri *t)
 			}
 			else
 			{
-				insert_piece(map, CONTENT(lst));
+				insert_piece(map, t);
 				return (1);
 			}
 		}
