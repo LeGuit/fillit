@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 09:43:55 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/09 13:04:10 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/04 19:45:48 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,14 @@
 # include <string.h>
 # include <fcntl.h>
 
-# define ABS(x)		((x > 0) ? (x) : -(x))
+# define ABS(x)				((x > 0) ? (x) : -(x))
+# define MIN(x, y)			((x) > (y) ? (y) : (x))
+# define MAX(x, y)			((x) < (y) ? (y) : (x))
+# define GET(i, mask)		(i & mask)
+# define SET(i, mask)		(i |= mask)
+# define UNSET(i, mask)		(i &= ~(mask))
+# define TOGGLE(i, mask)	(i ^= mask)
+# define PRINT(i, mask)		ft_putchar(GET(i, mask) ? '1' : '0')
 
 /*
 ** Fonction Memory libc
@@ -41,9 +48,11 @@ void				ft_memdel(void **ap);
 */
 size_t				ft_strlen(const char *s);
 size_t				ft_strlen_ch(char const *s, char c);
+size_t				ft_wstrlen(wchar_t *str);
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t n);
+char				*ft_strrcpy(char *dst, const char *src);
 char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
@@ -84,7 +93,11 @@ int					ft_isprint(int c);
 int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_atoi(const char *str);
+long int			ft_atoll(const char *str);
 char				*ft_itoa(int n);
+void				ft_ulltstr_base(unsigned long long n, char *base_strm,
+									char *buf);
+void				ft_slltstr(long long n, char *buf);
 /*
 ** Fonction Print
 */
@@ -98,16 +111,16 @@ void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putnstr(char *str, size_t n);
 void				ft_putnstr_fd(char *str, size_t n, int fd);
-
+/*
+** Fonction list general
+*/
 typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
-/*
-** Fonction list
-*/
+
 t_list				*ft_lstnew(void const *content, size_t content_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
@@ -116,5 +129,29 @@ void				ft_lstadd_last(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 t_list				*ft_lstfind(t_list *blist, void *ref, int (*cmp)());
+/*
+** Fonction list torvalds
+*/
+typedef struct		s_dlst
+{
+	struct s_dlst	*next;
+	struct s_dlst	*prev;
+}					t_dlst;
 
+void				dlst_init(t_dlst *dlst);
+void				dlst_add(t_dlst *new, t_dlst *prev, t_dlst *next);
+void				dlst_add_head(t_dlst *new, t_dlst *dlst);
+void				dlst_add_tail(t_dlst *new, t_dlst *dlst);
+void				dlst_del(t_dlst *prev, t_dlst *next);
+void				dlst_del_entry(t_dlst *entry);
+void				dlst_replace(t_dlst *old, t_dlst *new);
+void				dlst_replace_init(t_dlst *old, t_dlst *new);
+void				dlst_del_init(t_dlst *entry);
+void				dlst_move_head(t_dlst *entry, t_dlst *head);
+void				dlst_move_tail(t_dlst *entry, t_dlst *head);
+void				dlst_rotate(t_dlst *head);
+void				dlst_rrotate(t_dlst *head);
+int					dlst_empty(t_dlst *head);
+int					dlst_is_last(t_dlst *dslt, t_dlst *head);
+void				dlst_swap(t_dlst *head);
 #endif

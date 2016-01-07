@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 11:51:30 by gwoodwar          #+#    #+#              #
-#    Updated: 2015/12/09 21:25:27 by ndelmatt         ###   ########.fr        #
+#    Updated: 2016/01/04 17:16:17 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,10 @@
 
 CC =	gcc
 FLAGS =	-Wall -Werror -Wextra
-NAME =	libft.a
-HEAD =	-I libft.h
+NAME =	libftprintf.a
+HEAD =	-I includes/
+TEST = ft_printf
+
 
 SRCS =	ft_atoi.c \
 		ft_bzero.c \
@@ -48,6 +50,7 @@ SRCS =	ft_atoi.c \
 		ft_strclr.c \
 		ft_strcmp.c \
 		ft_strcpy.c \
+		ft_strrcpy.c \
 		ft_strdel.c \
 		ft_strdup.c \
 		ft_strequ.c \
@@ -74,21 +77,47 @@ SRCS =	ft_atoi.c \
 		ft_lstdelone.c \
 		ft_lstdel.c \
 		ft_lstadd.c \
-		ft_lstadd_last.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
 		ft_strlen_ch.c \
 		ft_lstfind.c \
 		ft_putnstr.c \
-		ft_putnstr_fd.c
+		ft_putnstr_fd.c \
+		ft_ulltstr_base.c \
+		ft_slltstr.c \
+		ft_widetoa.c \
+		ft_printf.c \
+		get_mod.c \
+		ft_vprintf.c \
+		conversion.c \
+		misc.c \
+		print_arg.c \
+		process_mod.c \
+		print_u.c \
+		print_sign.c \
+		print_str.c \
+		print_c.c \
+		print_wstr.c \
+		display_ui.c \
+		ft_wstrlen.c \
+		ft_dlstcreate.c \
+		ft_dlstdel.c \
+		ft_dlstmove.c \
+		ft_dlsttest.c \
+		ft_atoll.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
+test: $(TEST)
+
+$(TEST): $(NAME) 
+	$(CC) -o $@ main_test.c $^
+
 $(NAME): $(OBJS)
-	@ar rc $@ $^
-	@ranlib $@
+	ar rc $@ $^
+	ranlib $@
 
 %.o: %.c
 	@$(CC) $(FLAGS) $(HEAD) -o $@ -c $<
@@ -100,3 +129,5 @@ fclean: clean
 	@/bin/rm -f $(NAME)
 
 re: fclean all
+
+retest:fclean test

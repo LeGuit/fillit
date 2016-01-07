@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 14:45:04 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 11:47:56 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/12/08 13:53:31 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/12/14 18:54:19 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/libft.h"
+#include "includes/ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int			ft_printf(const char *format, ...)
 {
-	size_t count;
+	va_list		ap;
+	int			res;
 
-	count = 0;
-	if (!s)
-		return (count);
-	while (s[count] != '\0')
-		count++;
-	return (count);
+	va_start(ap, format);
+	res = ft_vprintf(format, ap);
+	va_end(ap);
+	return (res);
 }

@@ -1,35 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_slltstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 18:24:57 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/15 19:23:33 by gwoodwar         ###   ########.fr       */
+/*   Created: 2015/12/16 10:24:10 by gwoodwar          #+#    #+#             */
+/*   Updated: 2015/12/16 12:50:08 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-t_list		*ft_lstnew(void const *content, size_t content_size)
+static int		len_str(long long n)
 {
-	t_list	*res_list;
+	int			cnt;
 
-	if (!(res_list = (t_list*)malloc(sizeof(t_list))))
-		return (NULL);
-	res_list->next = NULL;
-	if (content == NULL)
+	cnt = 0;
+	if (n < 0)
+		cnt++;
+	while (n / 10)
 	{
-		res_list->content = NULL;
-		res_list->content_size = 0;
+		n /= 10;
+		cnt++;
 	}
-	else
+	return (cnt);
+}
+
+void			ft_slltstr(long long n, char *buf)
+{
+	int			size;
+
+	if (n == 0)
 	{
-		if (!(res_list->content = malloc(content_size)))
-			return (NULL);
-		ft_memmove(res_list->content, content, content_size);
-		res_list->content_size = content_size;
+		buf[0] = '0';
+		buf[1] = 0;
+		return ;
 	}
-	return (res_list);
+	size = len_str(n);
+	buf[size + 1] = 0;
+	if (n < 0)
+		buf[0] = '-';
+	while (n)
+	{
+		buf[size] = ABS(n % 10) + '0';
+		size--;
+		n /= 10;
+	}
 }

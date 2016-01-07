@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_dlstcreate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/23 14:45:04 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/07 11:47:56 by gwoodwar         ###   ########.fr       */
+/*   Created: 2016/01/04 13:06:55 by gwoodwar          #+#    #+#             */
+/*   Updated: 2016/01/04 18:19:02 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-size_t	ft_strlen(const char *s)
+void		dlst_init(t_dlst *dlst)
 {
-	size_t count;
+	dlst->next = dlst;
+	dlst->prev = dlst;
+}
 
-	count = 0;
-	if (!s)
-		return (count);
-	while (s[count] != '\0')
-		count++;
-	return (count);
+void		dlst_add(t_dlst *new, t_dlst *prev, t_dlst *next)
+{
+	next->prev = new;
+	new->next = next;
+	new->prev = prev;
+	prev->next = new;
+}
+
+void		dlst_add_head(t_dlst *new, t_dlst *dlst)
+{
+	dlst_add(new, dlst, dlst->next);
+}
+
+void		dlst_add_tail(t_dlst *new, t_dlst *dlst)
+{
+	dlst_add(new, dlst->prev, dlst);
 }
