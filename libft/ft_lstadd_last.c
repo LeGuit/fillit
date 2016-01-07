@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/23 18:41:57 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/11/27 14:13:52 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/07 16:47:33 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	ft_lstadd_last(t_list **alst, t_list *new)
 		*alst = new;
 	else
 	{
-		while (*alst->next)
-			*alst = *alst->next;
+		while ((*alst)->next)
+			*alst = (*alst)->next;
 		*alst = new;
 	}
 }

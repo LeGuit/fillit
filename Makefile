@@ -6,36 +6,35 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 16:00:57 by gwoodwar          #+#    #+#              #
-#    Updated: 2015/12/10 16:56:31 by ndelmatt         ###   ########.fr        #
+#    Updated: 2016/01/07 16:44:18 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC =		gcc
 FLAGS =		-Wall -Werror -Wextra
 NAME =		fillit
-LIB_NAME =	libft/libft.a
-LIB =		-I libft/includes
-LFT =		-L libft/ -lft
+LIB =		libft/libftprintf.a
+HEAD =		fillit.h
 
 SRCS =		fillit.c \
 			is_valid.c \
 			processing.c \
 			print_piece.c \
-			main.c \
+			main.c 
 
 OBJS =		$(SRCS:.c=.o)
 
 all:		$(NAME)
 
-libft/libft.a:
+$(LIB):
 	make -C libft/ fclean
 	make -C libft/
 
-$(NAME):	$(LIB_NAME) $(OBJS)
-	$(CC) $(FLAGS) -o $@ $(OBJS) $(LFT)
+$(NAME):	$(LIB) $(OBJS)
+	$(CC) $(FLAGS) -o $@ $(OBJS) $(LIB)
 
 %.o:		%.c
-	$(CC) $(FLAGS) $(LIB) -o $@ -c $<
+	$(CC) $(FLAGS) -I $(HEAD) -o $@ -c $<
 
 clean:
 	/bin/rm -f $(OBJS)
