@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:07:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/08 13:36:36 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/08 14:56:05 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ static int		can_fit_there(t_map *map, t_tetri *t)
 
 int				can_fit(t_map *map, t_tetri *t)
 {
-	ft_putendl("can fit");
-		print_piece(t);
 	while (map->ycoord < map->minsquare)
 	{
 		map->xcoord = 0;
