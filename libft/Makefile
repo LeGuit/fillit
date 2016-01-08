@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 11:51:30 by gwoodwar          #+#    #+#              #
-#    Updated: 2016/01/07 16:46:23 by gwoodwar         ###   ########.fr        #
+#    Updated: 2016/01/08 12:00:11 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,6 +82,7 @@ SRCS =	ft_atoi.c \
 		ft_lstmap.c \
 		ft_strlen_ch.c \
 		ft_lstfind.c \
+		ft_lstrev.c \
 		ft_putnstr.c \
 		ft_putnstr_fd.c \
 		ft_ulltstr_base.c \
