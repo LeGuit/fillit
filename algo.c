@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 16:59:11 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/08 17:41:52 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/08 18:30:08 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,12 +62,15 @@ int			can_fit_there(t_map *map, t_list *lst)
 	insert_piece(map, CONTENT(lst));
 	ft_putstr("insert piece\n");
 	print_map(map);
+	if (lst->next)
+	{
 	if (!can_fit(map, lst->next) && lst->next)
 	{
 		remove_piece(map, CONTENT(lst));
 	ft_putstr("remove piece\n");
 	print_map(map);
 		return (0);
+	}
 	}
 	return (1);
 }
