@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 16:59:11 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/08 18:30:08 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2016/01/08 19:00:51 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int			can_fit(t_map *map, t_list *lst)
 		while (map->xcoord < map->minsquare)
 		{
 			if (can_fit_there(map, lst))
-			{
-				return (1);}
+				return (1);
 			else
 			{
-				if (map->minsquare - map->xcoord > CONTENT(lst)->width)
+				if (map->minsquare - map->xcoord >= CONTENT(lst)->width)
 					map->xcoord++;
-				else if (map->minsquare - map->ycoord > CONTENT(lst)->height)
+				else if (map->minsquare - map->ycoord >= CONTENT(lst)->height)
 				{
 					map->xcoord = 0;
 					map->ycoord++;
 				}
 				else
 					return (0);
+				print_map(map);
 			}
 		}
 	}
@@ -64,7 +64,7 @@ int			can_fit_there(t_map *map, t_list *lst)
 	print_map(map);
 	if (lst->next)
 	{
-	if (!can_fit(map, lst->next) && lst->next)
+	if (!can_fit(map, lst->next))
 	{
 		remove_piece(map, CONTENT(lst));
 	ft_putstr("remove piece\n");
