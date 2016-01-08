@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2015/12/10 16:44:18 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2016/01/08 11:44:01 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ static void     create_piece(t_list **head, char *buf, char letter)
 	buf_to_struct(buf, &t);
 	if (!(node = ft_lstnew(&t, sizeof(t_tetri))))
 		return ;
-	ft_lstadd_last(head, node);
+	ft_lstadd(head, node);
 }
 
 int				get_next_tetri(int const fd, t_list **head, char letter)
