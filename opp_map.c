@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:07:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/08 14:56:05 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/08 17:22:40 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,52 +52,4 @@ void            remove_piece(t_map *map, t_tetri *t)
 		}
 		y++;
 	}
-}
-
-static int		can_fit_there(t_map *map, t_tetri *t)
-{
-	int         x;
-	int         y;
-
-	if (t->height > (map->minsquare - map->ycoord)
-			|| t->width > (map->minsquare - map->xcoord))
-		return (0);
-	y = 0;
-	while (y < t->height)
-	{
-		x = 0;
-		while (x < t->width)
-		{
-			if (map->field[map->ycoord + y][map->xcoord + x] != '.'
-					&& ft_isalpha(t->piece[y][x]))
-				return (0);
-			x++;
-		}
-		y++;
-	}
-	return(1);
-}
-
-int				can_fit(t_map *map, t_tetri *t)
-{
-	while (map->ycoord < map->minsquare)
-	{
-		map->xcoord = 0;
-		while (map->xcoord < map->minsquare)
-		{
-			if (!can_fit_there(map, t))
-			{
-				if (map->xcoord < map->minsquare)
-					map->xcoord++;
-				if (map->xcoord == map->minsquare)
-					map->ycoord++;
-			}
-			else
-			{
-				insert_piece(map, t);
-				return (1);
-			}
-		}
-	}
-	return (0);
 }

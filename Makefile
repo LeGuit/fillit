@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/03 16:00:57 by gwoodwar          #+#    #+#              #
-#    Updated: 2016/01/07 17:30:24 by gwoodwar         ###   ########.fr        #
+#    Updated: 2016/01/08 17:25:17 by gwoodwar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRCS =		fillit.c \
 			solve.c \
 			opp_map.c \
 			print_map.c \
+			algo.c \
 			main.c 
 
 OBJS =		$(SRCS:.c=.o)
