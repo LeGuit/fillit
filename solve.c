@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:08:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/08 12:35:19 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/08 13:33:09 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ static void		gen_map(t_map *map)
 		}
 		y++;
 	}
-	map->minsquare = 8;
 	map->xcoord = 0;
 	map->ycoord = 0;
 }
@@ -40,7 +39,6 @@ void			recursive(t_map *map, t_list **lst)
 		print_map(map);
 		if (can_fit(map, CONTENT(*lst)))
 		{
-			ft_putendl("");
 			if (!(*lst = (*lst)->next))
 				return ;
 			continue ;
@@ -52,7 +50,17 @@ void			recursive(t_map *map, t_list **lst)
 void			start_solve(t_list **lst)
 {
 	t_map		map;
+	int			size;
+	t_list		*tmp;
 
+	size = 0;
+	tmp = *lst;
+	while (tmp)
+	{
+		size++;
+		tmp = tmp->next;
+	}
+	map.minsquare = size - 1;
 	gen_map(&map);
 	recursive(&map, lst);
 	print_map(&map);
