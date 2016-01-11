@@ -6,7 +6,7 @@
 #    By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/24 11:51:30 by gwoodwar          #+#    #+#              #
-#    Updated: 2016/01/08 12:00:11 by gwoodwar         ###   ########.fr        #
+#    Updated: 2016/01/11 17:29:56 by ndelmatt         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,6 @@ SRCS =	ft_atoi.c \
 		get_mod.c \
 		ft_vprintf.c \
 		conversion.c \
-		misc.c \
 		print_arg.c \
 		process_mod.c \
 		print_u.c \

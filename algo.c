@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 16:59:11 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 16:09:50 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:21:46 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,24 @@ int			can_fit(t_map *map, t_list *lst)
 	return (0);
 }
 
+static int	insert_remove(t_map *map, t_list *lst)
+{
+	insert_piece(map, CONTENT(lst));
+	if (lst->next)
+	{
+		if (!can_fit(map, lst->next))
+		{
+			remove_piece(map, CONTENT(lst));
+			return (0);
+		}
+	}
+	return (1);
+}
+
 int			can_fit_there(t_map *map, t_list *lst)
 {
-	int			x;
-	int			y;
+	int		x;
+	int		y;
 
 	if (CONTENT(lst)->height > (map->minsquare - map->ycoord)
 			|| CONTENT(lst)->width > (map->minsquare - map->xcoord))
@@ -60,26 +74,13 @@ int			can_fit_there(t_map *map, t_list *lst)
 		}
 		y++;
 	}
-	insert_piece(map, CONTENT(lst));
-//	ft_putstr("insert piece\n");
-//	print_map(map);
-	if (lst->next)
-	{
-		if (!can_fit(map, lst->next))
-		{
-			remove_piece(map, CONTENT(lst));
-	//		ft_putstr("remove piece\n");
-//			print_map(map);
-			return (0);
-		}
-	}
+	if (!(insert_remove(map, lst)))
+		return (0);
 	return (1);
 }
 
-void			algo(t_map *map, t_list **lst)
+void		algo(t_map *map, t_list **lst)
 {
-	//	ft_putstr("map size\n");
-	//	print_map(map);
 	if (can_fit(map, *lst))
 		return ;
 	else

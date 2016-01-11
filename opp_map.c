@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:07:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/11 10:48:37 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:24:34 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void			insert_piece(t_map *map, t_tetri *t)
 {
-	int         x;
-	int         y;
+	int			x;
+	int			y;
 
 	t->mempos[0] = map->ycoord;
 	t->mempos[1] = map->xcoord;
@@ -35,10 +35,10 @@ void			insert_piece(t_map *map, t_tetri *t)
 	map->ycoord = 0;
 }
 
-void            remove_piece(t_map *map, t_tetri *t)
+void			remove_piece(t_map *map, t_tetri *t)
 {
-	int         x;
-	int         y;
+	int			x;
+	int			y;
 
 	y = 0;
 	while (y < t->height)

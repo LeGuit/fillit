@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 15:41:29 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 14:59:20 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:10:20 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int				fillit(char *av)
 		letter++;
 	}
 	ft_lstrev(&head);
-	if ((nbread - 20) % 21)//test a deplacer si possible
-	   return (0);	
+	if ((nbread - 20) % 21)
+		return (0);
 	if (close(fd) == -1)
 		return (0);
 	start_solve(&head);

@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 17:37:37 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/11 10:53:32 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:25:17 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ void			print_map(t_map *map)
 		y++;
 		ft_putchar('\n');
 	}
-		ft_putchar('\n');
+	ft_putchar('\n');
 }

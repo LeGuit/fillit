@@ -6,16 +6,16 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 15:02:29 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:27:11 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static void     gen_piece(t_tetri *tetri)
+static void		gen_piece(t_tetri *tetri)
 {
-	int         x;
-	int         y;
+	int			x;
+	int			y;
 
 	y = -1;
 	while (++y < P_SIZE)
@@ -58,7 +58,6 @@ static void		get_piece_metrics(char *buf, t_tetri *t)
 
 static void		buf_to_struct(char *buf, t_tetri *t)
 {
-
 	int			x;
 	int			y;
 
@@ -76,10 +75,10 @@ static void		buf_to_struct(char *buf, t_tetri *t)
 	}
 }
 
-static void     create_piece(t_list **head, char *buf, char letter)
+static void		create_piece(t_list **head, char *buf, char letter)
 {
-	t_list      *node;
-	t_tetri     t;
+	t_list		*node;
+	t_tetri		t;
 
 	gen_piece(&t);
 	get_piece_metrics(buf, &t);
@@ -101,7 +100,7 @@ int				get_next_tetri(int const fd, t_list **head, char letter)
 	(void)head;
 	ret = read(fd, buf, 21);
 	buf[ret] = '\0';
-	if(!(resval = is_valid(buf)) && *buf)
+	if (!(resval = is_valid(buf)) && *buf)
 		return (0);
 	if (ret != 0)
 		create_piece(head, buf, letter);

@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:14:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/11 16:50:53 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 17:22:35 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ static int		test_char(char *buf)
 		i++;
 	}
 	return (1);
-
 }
 
 int				is_valid(char *buf)
