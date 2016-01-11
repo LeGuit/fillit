@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/08 14:34:58 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 15:02:29 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,10 +102,7 @@ int				get_next_tetri(int const fd, t_list **head, char letter)
 	ret = read(fd, buf, 21);
 	buf[ret] = '\0';
 	if(!(resval = is_valid(buf)) && *buf)
-	{
-		ft_putnbr(resval);
-		return (-1);
-	}
+		return (0);
 	if (ret != 0)
 		create_piece(head, buf, letter);
 	return (ret);

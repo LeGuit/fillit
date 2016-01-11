@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/03 11:35:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/08 17:28:55 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 16:31:13 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ int					can_fit_there(t_map *map, t_list *lst);
 void				insert_piece(t_map *map, t_tetri *t);
 void				remove_piece(t_map *map, t_tetri *t);
 void				algo(t_map *map, t_list **lst);
+int					test_duoh(char *buf);
+int					test_duov(char *buf);
 
 #endif

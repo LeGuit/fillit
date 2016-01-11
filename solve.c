@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:08:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 10:45:10 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 16:14:32 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static int		min_square(int nb)
 {
 	int			i;
 
-	i = 0;
-	while ((i * i) <= (nb * 4))
+	i = 1;
+	while ((i * i) < (nb * 4))
 		i++;
 	return (i);
 }

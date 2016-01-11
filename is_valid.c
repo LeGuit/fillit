@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/09 21:14:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2015/12/09 21:15:08 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2016/01/11 16:32:31 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ static int		test_shape(char *buf)
 {
 	int			i;
 
-	i = 5;
-	while (i < 14)
+	i = 0;
+	while (i < 20)
 	{
 		if (buf[i] == '#')
 		{
-			if (buf[i - 1] != '#' && buf[i + 1] != '#'
-					&& buf[i + 5] != '#' && buf[i - 5] != '#')
+			if (!(buf[i - 1] == '#' || buf[i + 1] == '#'
+					|| buf[i + 5] == '#' || buf[i - 5] == '#'))
 				return (0);
 		}
 		i++;
@@ -84,7 +84,9 @@ int				is_valid(char *buf)
 	if (test_4tetri(buf)
 			&& test_endl(buf)
 			&& test_shape(buf)
-			&& test_char(buf))
+			&& test_char(buf)
+			&& test_duoh(buf)
+			&& test_duov(buf))
 		return (1);
 	return (0);
 }
