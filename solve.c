@@ -6,11 +6,21 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 16:08:24 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/08 17:50:56 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 10:45:10 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static int		min_square(int nb)
+{
+	int			i;
+
+	i = 0;
+	while ((i * i) <= (nb * 4))
+		i++;
+	return (i);
+}
 
 static void		gen_map(t_map *map)
 {
@@ -45,7 +55,7 @@ void			start_solve(t_list **lst)
 		size++;
 		tmp = tmp->next;
 	}
-	map.minsquare = (size - 1) / 2;
+	map.minsquare = min_square(size);
 	gen_map(&map);
 	algo(&map, lst);
 	print_map(&map);
