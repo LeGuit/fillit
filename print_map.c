@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 17:37:37 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/08 15:42:50 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 10:53:32 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void			print_map(t_map *map)
 	int	x;
 	int y;
 
-	x = 0;
 	y = 0;
 	while (y < map->minsquare)
 	{
+		x = 0;
 		while (x < map->minsquare)
 		{
 			ft_putchar(map->field[y][x]);
@@ -28,8 +28,6 @@ void			print_map(t_map *map)
 		}
 		y++;
 		ft_putchar('\n');
-		x = 0;
 	}
 		ft_putchar('\n');
 }
-

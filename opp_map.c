@@ -6,7 +6,7 @@
 /*   By: ndelmatt <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/10 18:07:41 by ndelmatt          #+#    #+#             */
-/*   Updated: 2016/01/08 17:22:40 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 10:48:37 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,6 @@ void            remove_piece(t_map *map, t_tetri *t)
 		}
 		y++;
 	}
+	map->xcoord = t->mempos[1];
+	map->ycoord = t->mempos[0];
 }
