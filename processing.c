@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/04 14:42:23 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 17:27:11 by ndelmatt         ###   ########.fr       */
+/*   Updated: 2016/01/11 18:23:03 by ndelmatt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int				get_next_tetri(int const fd, t_list **head, char letter)
 	char		buf[22];
 	int			resval;
 
-	(void)head;
 	ret = read(fd, buf, 21);
 	buf[ret] = '\0';
 	if (!(resval = is_valid(buf)) && *buf)
