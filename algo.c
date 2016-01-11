@@ -6,7 +6,7 @@
 /*   By: gwoodwar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 16:59:11 by gwoodwar          #+#    #+#             */
-/*   Updated: 2016/01/11 10:59:29 by gwoodwar         ###   ########.fr       */
+/*   Updated: 2016/01/11 14:46:48 by gwoodwar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int			can_fit(t_map *map, t_list *lst)
 				}
 				else
 					return (0);
-//				print_map(map);
+				//				print_map(map);
 			}
 		}
 	}
@@ -60,25 +60,25 @@ int			can_fit_there(t_map *map, t_list *lst)
 		y++;
 	}
 	insert_piece(map, CONTENT(lst));
-//	ft_putstr("insert piece\n");
-//	print_map(map);
+	//	ft_putstr("insert piece\n");
+	//	print_map(map);
 	if (lst->next)
 	{
-	if (!can_fit(map, lst->next))
-	{
-		remove_piece(map, CONTENT(lst));
-//	ft_putstr("remove piece\n");
-//	print_map(map);
-		return (0);
-	}
+		if (!can_fit(map, lst->next))
+		{
+			remove_piece(map, CONTENT(lst));
+			//	ft_putstr("remove piece\n");
+			//	print_map(map);
+			return (0);
+		}
 	}
 	return (1);
 }
 
 void			algo(t_map *map, t_list **lst)
 {
-//	ft_putstr("map size\n");
-//	print_map(map);
+	//	ft_putstr("map size\n");
+	//	print_map(map);
 	if (can_fit(map, *lst))
 		return ;
 	else
