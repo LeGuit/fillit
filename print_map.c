@@ -29,5 +29,4 @@ void			print_map(t_map *map)
 		y++;
 		ft_putchar('\n');
 	}
-	ft_putchar('\n');
 }
